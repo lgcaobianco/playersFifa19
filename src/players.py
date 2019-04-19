@@ -1,5 +1,8 @@
+# %%
 import numpy as np
 import pandas as pd
+
+# %%
 
 
 def removeM(value):
@@ -54,9 +57,10 @@ def findBestPlayers(param):
         param['Potential Growth'] >= 10) & (param['Potential'] >= 85)]
     print("Players with high growths that will achieve high overalls: ")
     print(future_stars.sort_values(by='Potential', ascending=False))
+    return future_stars
 
 
-findBestPlayers(attackers)
-findBestPlayers(midfielders)
-findBestPlayers(defensors)
-findBestPlayers(gks)
+findBestPlayers(attackers).to_csv("output/attackers.csv")
+findBestPlayers(midfielders).to_csv("output/midfielders.csv")
+findBestPlayers(defensors).to_csv("output/defensors.csv")
+findBestPlayers(gks).to_csv("output/gks.csv")
